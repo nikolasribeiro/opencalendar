@@ -3,14 +3,29 @@
   "version": "0.0.1",
   "description": "An Open Source React Calendar",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "npx tsc --watch",
+    "dev": "webpack serve --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nicolas Ribeiro",
   "license": "ISC",
   "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^9.1.0",
+    "html-webpack-plugin": "^5.6.3",
     "nodemon": "^3.1.7",
-    "typescript": "^5.6.3"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
