@@ -4,8 +4,13 @@
   "description": "An Open Source React Calendar",
   "main": "index.js",
   "scripts": {
+    "dev": "npx tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nicolas Ribeiro",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "typescript": "^5.6.3"
+  }
 }
