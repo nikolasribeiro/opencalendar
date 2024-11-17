@@ -23,8 +23,17 @@ export const Calendar: React.FC<CalendarProps> = ({
   onDayClick,
 }) => {
   const [currentDate, setCurrentDate] = useState(initialDate);
+  const firstDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    0
+  ).getDay();
 
   const daysInMonth = getDaysInMonth(currentDate);
+  const emptyDays = Array.from({ length: firstDayOfMonth }, (_, index) => (
+    <div key={`empty-${index}`} className="calendar-day empty" />
+  ));
+
   const monthName = currentDate.toLocaleString("default", { month: "long" });
   const year = currentDate.getFullYear();
 
@@ -43,22 +52,25 @@ export const Calendar: React.FC<CalendarProps> = ({
     <div className="calendar">
       <Header month={monthName} year={year} onNavigate={navigate} />
       <div className="calendar-days">
-        {daysInMonth.map((day) => {
-          const event = events.find((e) => e.date === day.date);
-          return (
-            <Day
-              key={day.date}
-              date={day.date}
-              day={day.day}
-              event={event}
-              onClick={() =>
-                event
-                  ? onEventClick && onEventClick(event)
-                  : handleDayClick(day.day)
-              }
-            />
-          );
-        })}
+        {[
+          ...emptyDays, // Días vacíos
+          ...daysInMonth.map((day) => {
+            const event = events.find((e) => e.date === day.date);
+            return (
+              <Day
+                key={day.date}
+                date={day.date}
+                day={day.day}
+                event={event}
+                onClick={() =>
+                  event
+                    ? onEventClick && onEventClick(event)
+                    : handleDayClick(day.day)
+                }
+              />
+            );
+          }),
+        ]}
       </div>
     </div>
   );

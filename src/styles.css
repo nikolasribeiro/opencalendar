@@ -28,12 +28,20 @@
 
 .calendar-day {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   border: 1px solid #ddd;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.calendar-date{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: .5rem;
 }
 
 .calendar-day:hover {
@@ -43,4 +51,21 @@
 .calendar-day.event {
   background-color: #007bff;
   color: white;
+}
+
+.empty{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.empty:hover{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.days-of-the-week{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding-inline: 1rem;
+}
+.days-of-the-week span {
+  text-align: center;
 }
