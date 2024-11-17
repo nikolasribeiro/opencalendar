@@ -1,0 +1,46 @@
+.calendar {
+  display: flex;
+  flex-direction: column; /* Para organizar encabezado y días */
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  height: 100%; /* Ocupa el 100% del alto del contenedor */
+  box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
+}
+
+.calendar-header {
+  flex: 0 0 auto; /* El encabezado tiene tamaño fijo */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.calendar-days {
+  flex: 1 1 auto; /* Los días ocupan el espacio restante */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas para los días de la semana */
+  grid-auto-rows: 1fr; /* Altura uniforme para cada fila */
+  gap: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.calendar-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calendar-day:hover {
+  background-color: #f1f1f1;
+}
+
+.calendar-day.event {
+  background-color: #007bff;
+  color: white;
+}

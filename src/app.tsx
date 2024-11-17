@@ -1,9 +1,10 @@
 import React from "react";
+import { Calendar } from "./components/calendar";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hola desde React sin dependencias externas</h1>
+    <div style={{ height: "95vh" }}>
+      <Calendar />;
     </div>
   );
 };
