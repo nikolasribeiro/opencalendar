@@ -29,10 +29,9 @@
 .calendar-day {
   display: flex;
   position: relative;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   border: 1px solid #ddd;
-  text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -48,10 +47,26 @@
   background-color: #f1f1f1;
 }
 
-.calendar-day.event {
-  background-color: #007bff;
-  color: white;
+.event-container{
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  margin-top: 2rem;
 }
+
+.unique-event{
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  margin-left: .3rem;
+}
+
+.calendar-day small {
+  position: relative;
+  /* background-color: #007bff; */
+  color: black;
+}
+
 
 .empty{
   background-color: rgba(0, 0, 0, .1);

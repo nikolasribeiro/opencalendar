@@ -7,18 +7,7 @@ import {
   getDaysInPreviousMonth,
 } from "../utils/dateUtils";
 import "../styles.css";
-
-type Event = {
-  date: string;
-  name: string;
-};
-
-interface CalendarProps {
-  initialDate?: Date;
-  events?: Event[];
-  onEventClick?: (event: Event) => void;
-  onDayClick?: (date: string) => void;
-}
+import { CalendarProps } from "../interfaces/calendar";
 
 export const Calendar: React.FC<CalendarProps> = ({
   initialDate = new Date(),
@@ -92,7 +81,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 key={day.date}
                 date={day.date}
                 day={day.day}
-                event={event}
+                events={events}
                 onClick={() =>
                   event
                     ? onEventClick && onEventClick(event)
