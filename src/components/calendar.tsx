@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Header } from "./header";
 import { Day } from "./day";
-import { getDaysInMonth, formatDate } from "../utils/dateUtils";
+import {
+  getDaysInMonth,
+  formatDate,
+  getDaysInPreviousMonth,
+} from "../utils/dateUtils";
 import "../styles.css";
 
 type Event = {
@@ -30,8 +34,35 @@ export const Calendar: React.FC<CalendarProps> = ({
   ).getDay();
 
   const daysInMonth = getDaysInMonth(currentDate);
-  const emptyDays = Array.from({ length: firstDayOfMonth }, (_, index) => (
-    <div key={`empty-${index}`} className="calendar-day empty" />
+  const lastDayOfPreviousMonth = getDaysInPreviousMonth(currentDate);
+
+  const daysFromPreviousMonth = Array.from(
+    { length: firstDayOfMonth },
+    (_, index) => lastDayOfPreviousMonth - firstDayOfMonth + index + 1
+  );
+
+  const previousMonthDays = daysFromPreviousMonth.map((day) => (
+    <div key={`prev-${day}`} className="calendar-day empty">
+      <span className="calendar-date">{day}</span>
+    </div>
+  ));
+
+  const lastDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  ).getDay();
+  const daysToFill = 7 - lastDayOfMonth;
+
+  const nextMonthDays = Array.from(
+    { length: daysToFill },
+    (_, index) => index + 1
+  );
+
+  const nextMonthDaysRendered = nextMonthDays.map((day) => (
+    <div key={`next-${day}`} className="calendar-day empty">
+      <span className="calendar-date">{day}</span>
+    </div>
   ));
 
   const monthName = currentDate.toLocaleString("default", { month: "long" });
@@ -53,7 +84,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       <Header month={monthName} year={year} onNavigate={navigate} />
       <div className="calendar-days">
         {[
-          ...emptyDays, // Días vacíos
+          ...previousMonthDays,
           ...daysInMonth.map((day) => {
             const event = events.find((e) => e.date === day.date);
             return (
@@ -70,6 +101,7 @@ export const Calendar: React.FC<CalendarProps> = ({
               />
             );
           }),
+          ...nextMonthDaysRendered,
         ]}
       </div>
     </div>

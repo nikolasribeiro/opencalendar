@@ -1,13 +1,13 @@
 .calendar {
   display: flex;
-  flex-direction: column; /* Para organizar encabezado y días */
-  width: 100%; /* Ocupa el 100% del ancho del contenedor */
-  height: 100%; /* Ocupa el 100% del alto del contenedor */
-  box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .calendar-header {
-  flex: 0 0 auto; /* El encabezado tiene tamaño fijo */
+  flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,10 +17,10 @@
 }
 
 .calendar-days {
-  flex: 1 1 auto; /* Los días ocupan el espacio restante */
+  flex: 1 1 auto;
   display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 7 columnas para los días de la semana */
-  grid-auto-rows: 1fr; /* Altura uniforme para cada fila */
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
   gap: 5px;
   padding: 10px;
   background-color: #fff;

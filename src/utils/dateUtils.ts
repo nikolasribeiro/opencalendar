@@ -20,3 +20,12 @@ export const formatDate = (date: Date, day: number) => {
   const dayString = String(day).padStart(2, "0");
   return `${year}-${month}-${dayString}`;
 };
+
+export const getDaysInPreviousMonth = (currentDate: Date) => {
+  const previousMonthDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    0
+  );
+  return previousMonthDate.getDate();
+};
