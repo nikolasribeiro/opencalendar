@@ -1,6 +1,6 @@
 {
   "name": "open-calendar",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An Open Source React Calendar",
   "main": "index.js",
   "type": "module",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "uuid": "^11.0.3"
   }
 }

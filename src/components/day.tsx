@@ -1,24 +1,40 @@
 import React from "react";
-import { Event } from "../interfaces/calendar";
+import { CalendarDayProps } from "../interfaces/calendar";
 
-interface DayProps {
-  date: string;
-  day: number;
-  events?: Event[];
-  onClick: () => void;
-}
+export const CalendarDay: React.FC<CalendarDayProps> = ({
+  date,
+  day,
+  events,
+  onEventClick,
+  onDayClick,
+  ...props
+}) => {
+  const today = new Date().toJSON().split("T")[0];
 
-export const Day: React.FC<DayProps> = ({ date, day, events, onClick }) => {
   return (
-    <div className={`calendar-day`} onClick={onClick}>
-      <span className="calendar-date">{day}</span>
+    <div
+      className={`calendar-day ${props.className ? props.className : ""}`}
+      onClick={(divEvent) => {
+        onDayClick(date);
+        divEvent.stopPropagation();
+      }}
+    >
+      {today === date && <div className="today-marker" />}
+      <span className={`calendar-date`}>{day}</span>
 
       {events && (
         <div className="event-container">
           {events.map((event) => {
             if (date === event.date) {
               return (
-                <div key={event.id} className="unique-event">
+                <div
+                  key={event.id}
+                  className="unique-event"
+                  onClick={(divEvent) => {
+                    onEventClick(event);
+                    divEvent.stopPropagation();
+                  }}
+                >
                   <div
                     style={{
                       width: ".5rem",
