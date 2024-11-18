@@ -1,16 +1,27 @@
 {
-  "name": "open-calendar",
+  "name": "opencalendar",
   "version": "0.1.0",
   "description": "An Open Source React Calendar",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "dev": "webpack serve --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "react",
+    "calendar",
+    "responsive",
+    "customizable",
+    "fullcalendar"
+  ],
   "author": "Nicolas Ribeiro",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
