@@ -17,6 +17,10 @@ export default {
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
+  externals: {
+    react: "react",
+    "react-dom": "react-dom",
+  },
   module: {
     rules: [
       {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar } from "./components/calendar";
+import { OpenCalendar } from "./components/calendar";
 import { CalendarEvent } from "./interfaces/calendar";
 import { CalendarHeader } from "./components/header";
 import { CalendarBody } from "./components/body";
@@ -58,7 +58,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ height: "95vh" }}>
-      <Calendar
+      <OpenCalendar
         header={<CalendarHeader weekDays={weekDays} />}
         body={
           <CalendarBody

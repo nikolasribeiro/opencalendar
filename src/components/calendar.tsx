@@ -3,7 +3,7 @@ import { CalendarProps } from "../interfaces/calendar";
 import { CalendarContext } from "../context/calendar.context";
 import { useOpenCalendar } from "../hooks/use-open-calendar";
 
-export const Calendar = ({
+export const OpenCalendar = ({
   initialDate = new Date(),
   header,
   body,

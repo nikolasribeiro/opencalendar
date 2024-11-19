@@ -15,7 +15,6 @@ type CalendarContextProps = {
 };
 
 export const CalendarContext = createContext({} as CalendarContextProps);
-
 export const useCalendarContext = () => {
   const context = useContext(CalendarContext);
 

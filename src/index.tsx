@@ -1,8 +1,10 @@
-import React from "react";
-import App from "./app";
-import { createRoot } from "react-dom/client";
 import "./styles.css";
+export { OpenCalendar } from "./components/calendar";
+export { CalendarHeader } from "./components/header";
+export { CalendarBody } from "./components/body";
+export { CalendarDay } from "./components/day";
 
-const container = document.getElementById("root");
-const root = createRoot(container!);
-root.render(<App />);
+export * from "./context";
+export * from "./hooks";
+export * from "./interfaces";
+export * from "./utils";
