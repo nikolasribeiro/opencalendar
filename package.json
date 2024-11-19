@@ -1,6 +1,6 @@
 {
   "name": "opencalendar",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An Open Source React Calendar",
   "main": "dist/bundle.js",
   "type": "module",

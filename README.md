@@ -30,7 +30,7 @@ yarn add opencalendar
 
 ```tsx
 import React from "react";
-import { Calendar } from "my-react-calendar";
+import { Calendar } from "opencalendar";
 
 const App = () => {
   const demoEvents = [
