@@ -23,6 +23,10 @@
   ],
   "author": "Nicolas Ribeiro",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikolasribeiro/opencalendar"
+  },
   "devDependencies": {
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
