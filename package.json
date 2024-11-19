@@ -1,6 +1,6 @@
 {
   "name": "opencalendar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An Open Source React Calendar",
   "main": "dist/bundle.js",
   "type": "module",
@@ -25,7 +25,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nikolasribeiro/opencalendar"
+    "url": "git+https://github.com/nikolasribeiro/opencalendar.git"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
